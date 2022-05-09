@@ -1,0 +1,45 @@
+﻿@model IEnumerable<INGWeb_Rivadeneira.Models.Options>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Questions.QuestionText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.optionText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.correctOption)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Questions.QuestionText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.optionText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.correctOption)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OptionsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OptionsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OptionsID })
+        </td>
+    </tr>
+}
+
+</table>
